@@ -1,0 +1,10 @@
+<div class="form-wrapper">
+  <h2>Inscription</h2>
+  
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <input formControlName="email" type="email" placeholder="Email" />
+    <input formControlName="password" type="password" placeholder="Mot de passe" />
+    <button type="submit" [disabled]="registerForm.invalid" >S'inscrire</button>
+    <p class="error" *ngIf="errorMessage">{{this.errorMessage}}</p>
+  </form>
+</div>

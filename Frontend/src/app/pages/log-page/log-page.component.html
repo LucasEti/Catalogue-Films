@@ -1,1 +1,14 @@
-<p>log-page works!</p>
+<div class="form-wrapper">
+  <h2>Connexion</h2>
+  
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <input formControlName="email" type="email" placeholder="Email" />
+    <input formControlName="password" type="password" placeholder="Mot de passe" />
+    <button type="submit" [disabled]="loginForm.invalid">Se connecter</button>
+    <div class="signup-link">
+        <span>Pas encore de compte ?</span>
+        <button (click)="goToRegister()" >S’inscrire</button>
+    </div>
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+  </form>
+</div>

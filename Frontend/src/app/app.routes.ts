@@ -1,3 +1,26 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { LogPageComponent } from './pages/log-page/log-page.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    { path: 'login', component: LogPageComponent },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path:'register',component: RegisterPageComponent},
+    { path : 'home', component:HomePageComponent}
+    
+];
+
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ]
+})
+export class AppRoutingModule {}
+
+
