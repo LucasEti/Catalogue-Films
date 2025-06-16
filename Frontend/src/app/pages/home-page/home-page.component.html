@@ -1,1 +1,11 @@
-<p>home-page works!</p>
+<app-favoris></app-favoris>
+<h1>Films populaires</h1>
+
+<div class="movie-list">
+  <div *ngFor="let movie of movies" class="movie-card">
+    <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" alt="{{ movie.title }}">
+    <h3>{{ movie.title }}</h3>
+    <p>Sorti en : {{ movie.release_date }}</p>
+    <button (click)="ajouterAuxFavoris(movie)">Ajouter aux favoris</button>
+  </div>
+</div>

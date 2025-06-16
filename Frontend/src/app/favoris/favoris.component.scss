@@ -1,0 +1,23 @@
+.favoris-ligne {
+  display: flex;
+  flex-wrap: nowrap; /* ou wrap si tu veux que ça passe à la ligne sur petit écran */
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.film {
+  min-width: 150px;
+  flex-shrink: 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 0.5rem;
+  text-align: center;
+  background-color: #1e1e1e;
+
+}
+
+.film img {
+  width: 100px;
+  border-radius: 5px;
+}

@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const userRoutes=require('./routes/user');
+const favorisRoutes = require('./routes/favoris');
 
 const app   = express();
 
@@ -24,7 +25,12 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
+// Routes liées à l'authentification (inscription, connexion, etc.)
+// Toutes les requêtes commençant par /api/auth seront dirigées vers userRoutes
 app.use('/api/auth',userRoutes);
+// Routes pour gérer les favoris des utilisateurs
+// Toutes les requêtes commençant par /api/favoris seront dirigées vers favorisRoutes
+app.use('/api/favoris', favorisRoutes);
 
 module.exports = app;
 

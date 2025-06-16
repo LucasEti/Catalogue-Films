@@ -1,1 +1,11 @@
-<p>header works!</p>
+<header class="app-header">
+  <h1>Rechercher votre film</h1>
+  <input
+    type="text"
+    placeholder="Rechercher un film ou une série..."
+    [(ngModel)]="searchTerm"
+    (keyup.enter)="onSearchChange()"
+  />
+  <button (click)="onSearchChange()">🔍</button>
+  <button (click)="logout()">Se déconnecter</button>
+</header>

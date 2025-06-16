@@ -3,13 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { LogPageComponent } from './pages/log-page/log-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { AuthGuard } from './auth.guard';
 
 export const routes: Routes = [
     { path: 'login', component: LogPageComponent },
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path:'register',component: RegisterPageComponent},
-    { path : 'home', component:HomePageComponent}
-    
+    { path : 'home', component:HomePageComponent, canActivate: [AuthGuard] }
+
 ];
 
 

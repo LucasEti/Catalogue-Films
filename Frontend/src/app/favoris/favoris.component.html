@@ -1,0 +1,14 @@
+<h2>Mes favoris</h2>
+
+<div *ngIf="favoris.length === 0">
+  Vous n'avez pas encore de favoris.
+</div>
+
+<div class="favoris-ligne " *ngIf="favoris.length > 0">
+  <div *ngFor="let film of favoris" class="film">
+    <img [src]="'https://image.tmdb.org/t/p/w200' + film.poster_path" alt="{{ film.title }}">
+    <h3>{{ film.title }}</h3>
+    <p>Sorti en : {{ film.release_date }}</p>
+    <button (click)="retirerFavori(film.id)">Retirer</button>
+  </div>
+</div>
