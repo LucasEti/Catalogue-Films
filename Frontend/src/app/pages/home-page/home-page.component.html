@@ -3,7 +3,7 @@
 
 <div class="movie-list">
   <div *ngFor="let movie of movies" class="movie-card">
-    <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" alt="{{ movie.title }}">
+    <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" alt="{{ movie.title }}" (click)="goToMovieDetails(movie.id)">
     <h3>{{ movie.title }}</h3>
     <p>Sorti en : {{ movie.release_date }}</p>
     <button (click)="ajouterAuxFavoris(movie)">Ajouter aux favoris</button>

@@ -5,6 +5,7 @@ import { SearchService } from '../../services/search.service';
 import { Subscription } from 'rxjs';
 import { FavorisService } from '../../services/favoris.service';
 import { FavorisComponent } from '../../favoris/favoris.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -17,7 +18,7 @@ export class HomePageComponent {
   movies: any[] = [];
   private searchSub?: Subscription;
 
-  constructor(private tmdbService: TmdbService,private searchService: SearchService,private favorisService: FavorisService) {}
+  constructor(private tmdbService: TmdbService,private searchService: SearchService,private favorisService: FavorisService, private router: Router) {}
 
   /**
    * Méthode appelée à l'initialisation du composant.
@@ -81,5 +82,11 @@ export class HomePageComponent {
    */
   ngOnDestroy() {
     this.searchSub?.unsubscribe();
+  }
+
+
+  goToMovieDetails(movieId: number) {
+    // Logique pour naviguer vers la page de détails du film
+    this.router.navigate(['/movie', movieId]);
   }
 }

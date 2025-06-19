@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FavorisService } from '../services/favoris.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-favoris',
@@ -10,7 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class FavorisComponent implements OnInit {
   favoris: any[] = [];
-  constructor(private favorisService: FavorisService) {}
+  constructor(private favorisService: FavorisService, private router: Router) {}
 
   /**
    * Initialise le composant : 
@@ -65,6 +66,10 @@ export class FavorisComponent implements OnInit {
         console.error('Erreur lors de la suppression du favori', err);
       }
     });
+  }
+
+  goToMovieDetails(movieId: number) {
+    this.router.navigate(['/movie', movieId]);
   }
 
 }

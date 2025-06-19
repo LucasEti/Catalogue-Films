@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of, switchMap } from 'rxjs';
 import { TmdbResponse } from '../models/TMDBresponse.model';
+import { MovieDetail } from '../models/Movie-detail.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,18 @@ export class TmdbService {
     const url = `${this.baseUrl}/movie/popular?api_key=${this.apiKey}&language=fr-FR&page=1`;
     return this.http.get<TmdbResponse>(url);
   }
- 
+
+  /**
+   * Récupère les détails d'un film spécifique par son identifiant.
+   *
+   * @param {number} id - L'identifiant du film à récupérer
+   * @returns {Observable<MovieDetail>} Un observable contenant les détails du film
+   */
+  getMovieDetails(id: number): Observable<MovieDetail> {
+    const url = `${this.baseUrl}/movie/${id}?api_key=${this.apiKey}&language=fr-FR`;
+    return this.http.get<MovieDetail>(url);
+  }
+
 
   /**
    * Recherche des films par mot-clé dans l'API TMDB.
@@ -34,4 +46,5 @@ export class TmdbService {
   const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=fr-FR&query=${encodeURIComponent(query)}&page=1&include_adult=false`;
   return this.http.get<TmdbResponse>(url);
 }
+
 }

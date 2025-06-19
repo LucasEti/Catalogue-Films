@@ -1,1 +1,21 @@
-<p>movie-details-page works!</p>
+<div *ngIf="movie" class="movie-detail-container">
+  <div class="poster">
+    <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" [alt]="movie.title" />
+  </div>
+
+  <div class="info">
+    <h2>{{ movie.title }}</h2>
+    <p class="tagline">{{ movie.tagline }}</p>
+
+    <p><strong>Résumé :</strong> {{ movie.overview }}</p>
+    <p><strong>Sortie :</strong> {{ movie.release_date }}</p>
+    <p><strong>Note :</strong> ⭐ {{ movie.vote_average }}/10</p>
+    <p><strong>Genres :</strong> {{ genreList }}</p>
+    <p><strong>Durée :</strong> {{ movie.runtime }} minutes</p>
+
+    <a *ngIf="movie.homepage" [href]="movie.homepage" target="_blank" class="homepage-link">
+      ▶️ Page officielle
+    </a>
+  </div>
+</div>
+

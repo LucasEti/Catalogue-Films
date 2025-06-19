@@ -20,3 +20,4 @@ export class SearchService {
     this.searchTermSubject.next(term);
   }
 }
+
