@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, tap } from "rxjs";
+import { BehaviorSubject, Observable, of, tap } from "rxjs";
 import { Film } from "../models/Film.model";
 
 
@@ -22,13 +22,23 @@ export class FavorisService {
     constructor(private http: HttpClient) {}
 
     /**
-   * Ajoute un favori à la base de données via une requête POST,
+   * Ajoute un favori à la base de données via une requête POST si il n'existe pas déjà,
    * puis met à jour localement la liste avec le nouveau favori.
    *
    * @param {any} favori - L'objet représentant le film à ajouter aux favoris
    * @returns {Observable<Film>} Un observable contenant le favori ajouté (réponse du backend)
    */
     ajouterFavori(favori: any): Observable<Film> {
+
+      const currentFavoris = this.favorisSubject.value;
+
+      // Vérifier si le favori existe déjà 
+      const existe = currentFavoris.some(f => f.id === favori.id);
+
+      if (existe) {
+        // Si déjà présent, on renvoie un Observable sans faire la requête (par ex Observable.of)
+        return of(null as any); 
+      }
       return this.http.post<Film>(this.apiUrl, favori).pipe(
         tap(nouveauFavori => {
           const currentFavoris = this.favorisSubject.value;

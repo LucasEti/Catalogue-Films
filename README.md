@@ -1,17 +1,37 @@
-# CatalogueDeFilm
+# Catalogue de Films - Application Fullstack Cloud-Native
 
-# Pour installer les dépendances du projet (à faire en 1er)
+# Description
+Cette application permet aux utilisateurs de :
 
-- lancer "npm install" dans dossier FrontEnd
-- lancer aussi "npm install" dans dossier backend pour installer mongoose, express, bcrypt, jsonwebtoken et mongoose-unique-validator
+    - Rechercher des films via une API publique (comme TMDB)
+    - Ajouter des films à leur liste de favoris
+    - Gérer leur compte (authentification JWT et sécurisée avec bcrypt)
+    - Se deconnecter
+    - Voir les détails d’un film en cliquant dessus
+    - Pouvoir aller à la page oficielle du film (sur netflix par exemple) si l'API TMDB le référence (par exemple comme le film "à bout")
 
-# Pour lancer appli angular 
+# Stack Technique 
 
-1- Se rendre à la racine du dossier front et entrer la commande "ng serve" (ca va noramlement installer angular et les dépendances)
-2- Se rendre ensuite à "http://localhost:4200"
+    - Frontend : Angular
+    - Backend : Node.js
+    - Base de donnée : MongoDB
+    - Déploiement : kubernetes pour un déploiement Cloud et Docker-compose pour un déploiement local
 
-# Pour lancer le serveur 
 
-1- Se rendre à la racine du backend et lancer "nodemon server.js" (avoir installé nodemon auparavant avec "npm install  -g nodemon") 
-2- Sinon faire "node server.js" marche aussi mais obliger de relancer la commande à chaque fois qu'on modifie le code
+# Prérequis pour lancer en local : 
 
+    - Node.js
+    - Docker
+    - Docker-compose
+
+# Pour lancer en local :
+
+    1- Clonner le repo git
+    2- Ouvrir Docker Deskop
+    2- Se déplacer à la racine du repo 
+    3- Lancer la commande "docker-compose up --build"
+    4- Se rendre sur l'application via l'URL : "http://localhost:8080/"
+
+# Pour lancer l'application en passant pas Infomaniak :
+
+    - Se rendre à l'url : "http://83.228.200.242/" 
