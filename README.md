@@ -18,6 +18,7 @@ Cette application permet aux utilisateurs de :
     - Déploiement : kubernetes pour un déploiement Cloud et Docker-compose pour un déploiement local
 
 
+
 # Prérequis pour lancer en local : 
 
     - Node.js
@@ -35,3 +36,4 @@ Cette application permet aux utilisateurs de :
 # Pour lancer l'application en passant pas Infomaniak :
 
     - Se rendre à l'url : "http://83.228.200.242/" 
+    - Se connecter avec  : test@gmail.com et mot de passe : 0000
